@@ -17,7 +17,7 @@ function App () {
 
   const [access, setAccess] = useState(false);
   const username = "walterandresporta@gmail.com";
-  const password = "123456789";
+  const password = "123qwe";
 
   function login(userData){
     if (userData.password === password && userData.username === username){
@@ -37,7 +37,7 @@ function App () {
         .then((response) => response.json())     
         .then((data) => {
           console.log(data);
-          if (data.id) {
+          if (data.name) {
               setCharacters((estadoAnterior) => [...estadoAnterior, data]);
               navigate("/home");
           } else {
@@ -49,7 +49,7 @@ function App () {
  
   function onClose(id){
     setCharacters(
-      characters.filter(personaje => personaje.id !== id))
+      characters.filter((personaje) => personaje.id !== id))
   }
 
 

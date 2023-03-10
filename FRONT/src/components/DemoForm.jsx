@@ -53,7 +53,7 @@ function DinamicInputs(){
         setFamiliar(familiares);
 };
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         console.log(familiar)
     }
@@ -69,6 +69,7 @@ return (
 
         />
         {errors.nombre && <span>{errors.nombre}</span>}
+        
         <laber htmlFor="nombre">Mail:</laber>
         <input
             type="button"

@@ -8,7 +8,7 @@ export default function Form({ login }){
     password: "",
   });
 
-  const [errors, setErrors] = React.useState({ });
+const [errors, setErrors] = React.useState({ });
    
 
 
@@ -18,7 +18,7 @@ function handleInputChange(e){
 }
 
 
-function handleSubmit(e){
+async function handleSubmit(e){
   e.preventDefault();
   login(userData);
 }

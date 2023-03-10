@@ -6,17 +6,19 @@ import { useState } from "react";
 import { addFavorite, deleteFavorite } from "../../../redux/actions";
 import { useEffect } from "react";  
 
+
+
 export default function Card({name, species, gender, image, onClose, id}) {
-   const [isFav, setIsFav] = useState(false);
-   const myFavorites = useSelector(state => state.myFavorites);
+   const [isFav, setFav] = useState(false);
+   const myFavorites = useSelector((state) => state.myFavorites);
    const dispatch = useDispatch();
 
    const handleFavorite = () => {
       if (isFav) {
-         setIsFav(false);
+         setFav(false);
          dispatch(deleteFavorite(id));
       } else { 
-         setIsFav(true);
+         setFav(true);
          dispatch(addFavorite({name, species, gender, image, onClose, id}));
    
    }
@@ -25,10 +27,10 @@ export default function Card({name, species, gender, image, onClose, id}) {
       useEffect(() => {
       myFavorites.forEach((fav) => {
          if (fav.id === id) {
-            setIsFav(true);
+            setFav(true);
          }
       });
-   }, [myFavorites]);
+   }, [myFavorites, id]);
       
    
    return (

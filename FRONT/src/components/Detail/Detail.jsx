@@ -19,8 +19,8 @@ export default function Detail(props){
       fetch(`http://localhost:3001/rickandmorty/detail/${id}`)
         .then((response) => response.json())
         .then((char) => {
-        if (char.name) {
             console.log("me responde el back", char)
+        if (char.name) {
             setInfo(char);
         } else {
             window.alert("No hay personajes con ese ID");
